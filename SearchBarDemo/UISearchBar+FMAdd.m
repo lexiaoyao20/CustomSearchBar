@@ -36,6 +36,13 @@
     }
 }
 
-
+- (void)fm_setCancelButtonFont:(UIFont *)font {
+    NSDictionary *textAttr = @{NSFontAttributeName : font};
+    if (IS_IOS9) {
+        [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTitleTextAttributes:textAttr forState:UIControlStateNormal];
+    }else {
+        [[UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateNormal];
+    }
+}
 
 @end

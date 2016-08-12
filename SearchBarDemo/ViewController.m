@@ -44,6 +44,8 @@
     //3. 设置按钮文字和颜色
     [self.customSearchBar fm_setCancelButtonTitle:@"取消"];
     self.customSearchBar.tintColor = [UIColor colorWithRed:86/255.0 green:179/255.0 blue:11/255.0 alpha:1];
+    //设置取消按钮字体
+    [self.customSearchBar fm_setCancelButtonFont:[UIFont systemFontOfSize:22]];
     //修正光标颜色
     [searchField setTintColor:[UIColor blackColor]];
     
