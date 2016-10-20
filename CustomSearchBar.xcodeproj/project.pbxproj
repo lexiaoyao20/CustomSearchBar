@@ -16,7 +16,6 @@
 		930C84881C41C324004F9CFB /* SearchBarDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 930C84871C41C324004F9CFB /* SearchBarDemoTests.m */; };
 		930C84931C41C324004F9CFB /* SearchBarDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 930C84921C41C324004F9CFB /* SearchBarDemoUITests.m */; };
 		930C84A21C41D447004F9CFB /* UISearchBar+FMAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 930C84A11C41D447004F9CFB /* UISearchBar+FMAdd.m */; };
-		930D80D41C4FE28F00158634 /* Search_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 930D80D31C4FE28F00158634 /* Search_Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +54,6 @@
 		930C84941C41C324004F9CFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		930C84A01C41D446004F9CFB /* UISearchBar+FMAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+FMAdd.h"; sourceTree = "<group>"; };
 		930C84A11C41D447004F9CFB /* UISearchBar+FMAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+FMAdd.m"; sourceTree = "<group>"; };
-		930D80D31C4FE28F00158634 /* Search_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Search_Icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +122,6 @@
 		930C846D1C41C324004F9CFB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				930D80D31C4FE28F00158634 /* Search_Icon.png */,
 				930C846E1C41C324004F9CFB /* main.m */,
 			);
 			name = "Supporting Files";
@@ -251,7 +248,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				930D80D41C4FE28F00158634 /* Search_Icon.png in Resources */,
 				930C847D1C41C324004F9CFB /* LaunchScreen.storyboard in Resources */,
 				930C847A1C41C324004F9CFB /* Assets.xcassets in Resources */,
 				930C84781C41C324004F9CFB /* Main.storyboard in Resources */,

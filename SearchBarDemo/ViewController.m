@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *customSearchBar;
 @property (weak, nonatomic) IBOutlet UISearchBar *minimalSearchBar;
+@property (strong, nonatomic) UIButton *voiceButton;
 
 
 @end
@@ -53,13 +54,34 @@
     [self.customSearchBar fm_setTextColor:[UIColor blackColor]];
     [self.customSearchBar fm_setTextFont:[UIFont systemFontOfSize:14]];
     
+    //5. 设置搜索Icon
+    [self.customSearchBar setImage:[UIImage imageNamed:@"Search_Icon"]
+                  forSearchBarIcon:UISearchBarIconSearch
+                             state:UIControlStateNormal];
+    
+    //6. 实现类似微信的搜索框
+    UIButton *voiceButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [voiceButton setImage:[UIImage imageNamed:@"Voice_button_icon"] forState:UIControlStateNormal];
+    [voiceButton addTarget:self action:@selector(tapVoiceButton:) forControlEvents:UIControlEventTouchUpInside];
+    [searchField addSubview:voiceButton];
+    self.voiceButton = voiceButton;
+    
+    //Autolayout
+    voiceButton.translatesAutoresizingMaskIntoConstraints = NO;
+    NSDictionary *views = NSDictionaryOfVariableBindings(voiceButton);
+    //设置水平方向约束
+    [searchField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[voiceButton(21)]-|" options:NSLayoutFormatAlignAllRight | NSLayoutFormatAlignAllLeft metrics:nil views:views]];
+    //设置高度约束
+    [searchField addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[voiceButton(21)]" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:views]];
+    //设置垂直方向居中约束
+    [searchField addConstraint:[NSLayoutConstraint constraintWithItem:voiceButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:searchField attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
     //设置类似QQ搜索框
     self.minimalSearchBar.searchBarStyle = UISearchBarStyleMinimal;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//按钮触摸事件
+- (IBAction)tapVoiceButton:(id)sender {
+    NSLog(@"Tap voiceButton");
 }
 
 #pragma mark -
@@ -74,6 +96,11 @@
     searchBar.text = @"";
     [searchBar setShowsCancelButton:NO animated:YES];
     [searchBar endEditing:YES];
+}
+
+//监控文本变化
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.voiceButton.hidden = searchText.length > 0;
 }
 
 @end
