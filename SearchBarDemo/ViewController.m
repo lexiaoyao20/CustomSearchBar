@@ -99,8 +99,9 @@
 }
 
 //监控文本变化
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.voiceButton.hidden = searchText.length > 0;
+- (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    self.voiceButton.hidden = searchBar.text.length + (text.length - range.length) > 0;
+    return YES;
 }
 
 @end
